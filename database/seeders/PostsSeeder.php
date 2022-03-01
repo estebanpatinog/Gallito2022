@@ -6,8 +6,13 @@ use Illuminate\Database\Seeder;
 
 use Illuminate\Support\Facades\DB;
 
+use App\Models\Post;
+
 class PostsSeeder extends Seeder
 {
+
+
+
     /**
      * Run the database seeds.
      *
@@ -15,8 +20,27 @@ class PostsSeeder extends Seeder
      */
     public function run()
     {
+        $p = new Post();
+        $p->content = "Cualquier cosa 1";
+        $p->user_id = 1;
+        $p->save();
+
+        $p = new Post();
+        $p->content = "Cualquier cosa 5";
+        $p->user_id = 1;
+        $p->save();
+
+        $p = new Post();
+        $p->content = "Cualquier cosa 2";
+        $p->user_id = 2;
+        $p->save();
+
+        $p = new Post();
+        $p->content = "Cualquier cosa 3";
+        $p->user_id = 1;
+        $p->save();
         //
-        DB::table('posts')->insert([
+       /*  DB::table('posts')->insert([
             'content' => "Cualquier cosa 1",
             'user_id' => "1",
 
@@ -37,6 +61,6 @@ class PostsSeeder extends Seeder
         DB::table('posts')->insert([
             'content' => "Cualquier cosa 3",
             'user_id' => "3",
-        ]);
+        ]); */
     }
 }
