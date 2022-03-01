@@ -19,7 +19,9 @@ class PostController extends Controller
                     ->orderBy('created_at', 'desc')
                     ->get();
  */
-        $posts = $user->posts()->orderBy('created_at', 'desc')->get();
+        $posts = $user->posts()
+                ->orderBy('created_at', 'desc')
+                ->simplepaginate(2);
 
         return view('posts.index', compact('posts', 'user'));
     }
