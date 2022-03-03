@@ -19,17 +19,17 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert([
             'name' => "Esteban Patiño",
             'email' => "esteban.patinog@autonoma.edu.co",
-            'password' => "hola1234",
+            'password' => Hash::make('hola1234'),
         ]);
         DB::table('users')->insert([
             'name' => "Don Asistente",
             'email' => "asistente@autonoma.edu.co",
-            'password' => "bola1234",
+            'password' => Hash::make('bola1234'),
         ]);
         DB::table('users')->insert([
             'name' => "Diseñador",
             'email' => "diseno@autonoma.edu.co",
-            'password' => "cola1234",
+            'password' => Hash::make('cola1234'),
         ]);
     }
 }
