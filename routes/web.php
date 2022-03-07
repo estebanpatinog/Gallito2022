@@ -1,7 +1,8 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,17 +15,22 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/* Route::get('/', function () {
+    $users = User::all();
+    return view('welcome', compact('users'));
+}); */
+
 
 Auth::routes();
+Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/u/{user}', [App\Http\Controllers\PostController::class, 'index']);
+Route::get('/u/{user}', [App\Http\Controllers\PostController::class, 'index'])->name('index');
 
-//Route::get('/perfil/{user}', [App\Http\Controllers\UserController::class, 'index']);
+Route::get('/allu/{user}', [App\Http\Controllers\WelcomeController::class, 'ver'])->name('allusers.index');
+
+Route::get('/perfil/{user}', [App\Http\Controllers\UserController::class, 'index']);
 
 Route::resource('posts', App\Http\Controllers\PostController::class)
     ->except(['index']);

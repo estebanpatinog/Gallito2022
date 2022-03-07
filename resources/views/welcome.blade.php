@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <h1>Usuarios registrados en Gallito</h1>
+        @forelse ($users as $user)
+            <div class="card mb-1">
+                <div class="card-body">
+                    <a href="{{ route('allusers.index',$user->id)}} ">
+                        <i class="">{{ $user->name }}</i>
+                    </a>
+                </div>
+            </div>
+        @empty
+            <div class="alert alert-info" role="alert">
+                No hay usuarios registrados
+            </div>
+        @endforelse
+    </div>
+
+
+@endsection
+
+
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -27,10 +51,10 @@
                     @auth
                         <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Iniciar Sesion</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Registro</a>
                         @endif
                     @endauth
                 </div>
@@ -129,4 +153,4 @@
             </div>
         </div>
     </body>
-</html>
+</html> --}}
