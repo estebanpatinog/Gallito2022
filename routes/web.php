@@ -24,13 +24,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/u/{user}', [App\Http\Controllers\PostController::class, 'index'])->name('index');
 
 Route::get('/allu/{user}', [App\Http\Controllers\WelcomeController::class, 'ver'])->name('allusers.index');
 
-Route::get('/perfil/{user}', [App\Http\Controllers\UserController::class, 'index']);
+/* Route::get('/perfil/{user}', [App\Http\Controllers\UserController::class, 'index']); */
 
 Route::resource('posts', App\Http\Controllers\PostController::class)
     ->except(['index']);

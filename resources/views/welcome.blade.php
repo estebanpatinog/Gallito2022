@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
     <div class="container">
         <h1>Usuarios registrados en Gallito</h1>
@@ -16,6 +17,7 @@
                 No hay usuarios registrados
             </div>
         @endforelse
+
     </div>
 
 
